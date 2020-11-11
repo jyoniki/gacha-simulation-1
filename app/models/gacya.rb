@@ -1,0 +1,2 @@
+class Gacya < ApplicationRecord
+end
