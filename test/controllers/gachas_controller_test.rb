@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GachaTest < ActiveSupport::TestCase
+class GachasControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
