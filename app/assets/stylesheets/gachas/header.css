@@ -1,0 +1,22 @@
+.top-page-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdcdc;
+}
+.haeder-title {
+  display: flex;
+}
+.gacha-icon{
+  width: 5vw;
+}
+
+.sub-title{
+  font-size: 20px;
+  padding-top: 30px;
+}
+
+span{
+  color: #C2EEFF;
+  text-shadow: 2px 2px 3px black
+}
