@@ -1,0 +1,26 @@
+
+.title-contents{
+  background-color: burlywood;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title{
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
+}
+.btn-default{
+  background-color: #AAFFFF;
+  margin-bottom: 10px;
+}
+
+.btn-default-reset{
+  margin-top: 10px;
+}
