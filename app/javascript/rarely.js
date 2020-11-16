@@ -102,4 +102,7 @@ $(function(){
     })
     result.push(randomChoice(r3data, 1)[0]);
  }
+    $('try').on('click', function(){
+         createResult();
+      })
 })
