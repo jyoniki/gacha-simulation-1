@@ -1,5 +1,3 @@
-const { data } = require("jquery");
-
 data = [
   //Rのデータ
   {"title":"R-1",
@@ -96,13 +94,15 @@ $(function(){
     // 全データからランダムに9枚持ってくる
     result = randomChoice(data, 9);
 
-    // 星5だけのデータからランダムに1枚持ってきて9枚に足す
+    // 3だけのデータからランダムに1枚持ってきて9枚に足す
     r5data = data.filter((datum) => {
         return datum.rarelity === 3
     })
     result.push(randomChoice(r3data, 1)[0]);
  }
+ 
     $('try').on('click', function(){
-         createResult();
+        createResult();
+      $("te").text("結果");
       })
 })
