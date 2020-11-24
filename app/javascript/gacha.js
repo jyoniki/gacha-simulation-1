@@ -76,7 +76,13 @@ data = [
   "rarelity":3},
 ]
 
+
+  //counterの設定
+let countUpValue = 0;
+
+
 $(function(){
+
   function createResult(){
     // ランダムな数を作る関数を定義
     function randomChoice(array, num){
@@ -84,25 +90,41 @@ $(function(){
         const choiced = []
         let l = array.length;
         let n = Math.min(num, array.length);
+        
         while(n-- > 0){
             let i = Math.floor(Math.random() * l--);
             choiced.push(arr[i]);
-            arr.splice(i, 1);
         }
         return choiced;
     }
     // 全データからランダムに9枚持ってくる
     result = randomChoice(data, 9);
 
-    // 3だけのデータからランダムに1枚持ってきて9枚に足す
-    r5data = data.filter((datum) => {
-        return datum.rarelity === 3
+    // 2以上のデータからランダムに1枚持ってきて9枚に足す
+    thats_all_2 = data.filter((datum) => {
+        return datum.rarelity >= 2
     })
-    result.push(randomChoice(r3data, 1)[0]);
- }
+    result.push(randomChoice(thats_all_2, 1)[0]);
+      }
+    // ガチャ実行ボタン
+  $('#try').on('click',function(){
+    createResult();
+    // ガチャの結果表示画面
+    let stock = '';
+    for (let i=0; i<result.length;i++){
+    stock += '<li>'+ result[i].title + ':' + '星' + (result[i].rarelity) + '</li>';
+    }
+    $('#result').html(stock)
  
-    $('try').on('click', function(){
-        createResult();
-      $("te").text("結果");
-      })
+
+    //押した回数の表示(10蓮刻み)
+    countUpValue+= 10;
+    $('#counter').html(`${countUpValue}連目`);
+  })
+    //リセットボタン 
+  $('#reset').on('click',function(){
+   $('#result').html('');
+   countUpValue= 0;
+   $('#counter').html('');
+  })
 })
