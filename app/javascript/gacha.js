@@ -80,6 +80,11 @@ data = [
   //counterの設定
 let countUpValue = 0;
 
+  //レアリティの収納先
+let r_count = 0;
+let sr_count = 0;
+let ssr_count =0;
+
 
 $(function(){
 
@@ -128,18 +133,23 @@ $(function(){
     //排出された結果をレアリティで振り分け
     let count = {}; 
     for (let i = 0; i < result.length;i++) {
-      
     let elm = result[i].rarelity;
     count[elm] = (count[elm] || 0) + 1;
     }
     //対象のレアリティがなかった時に０で表示させる
     if(!count[1]) count[1] = 0;
-    if(!count[2]) count[3] = 0;
+    if(!count[2]) count[2] = 0;
     if(!count[3]) count[3] = 0;
-    //排出されたレアリティの表示
-    result3 = '<li>' + 'R' + count[1] +':' + 'SR'+ count[2] + ':' + 'SSR' +count[3] + '</li>'
-    $('#result3').html(result3);
 
+    //総数の一時保存
+    r_count= r_count+ count[1];
+    sr_count = sr_count + count[2];
+    ssr_count = ssr_count + count[3];
+    
+    //排出されたレアリティの表示
+    result3 = `<te>R${r_count}:SR${sr_count}:SSR${ssr_count}</te>`
+    $('#result3').html(result3);
+    
     //押した回数の表示(10連刻み)
     countUpValue+= 10;
     $('#counter').html(`${countUpValue}連目`);
@@ -149,7 +159,11 @@ $(function(){
   $('#reset').on('click',function(){
    $('#result1').html('');
    $('#result2').html('');
+   $('#result3').html('');
    countUpValue= 0;
    $('#counter').html('');
+   r_count = 0;
+   sr_count = 0;
+   ssr_count = 0;
   })
 })
