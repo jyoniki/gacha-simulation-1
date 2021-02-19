@@ -116,6 +116,7 @@ $(function(){
     // ガチャ実行ボタン
   $('#try').on('click',function(){
     createResult();
+    
     // ガチャの結果表示画面(アイテム)
     let stock1 = '';
     for (let i=0; i<result.length;i++){
